@@ -1,0 +1,27 @@
+{
+  "binary": "findicon.exe",
+  "sizeBytes": 2964480,
+  "sha256": "2d7cc2636cdcdab02af44807a814ff92086b405903f9c727944f116f64d359fb",
+  "format": "PE32+ executable (console) x86-64, for MS Windows, 14 sections",
+  "imports": [
+    "KERNEL32.dll",
+    "api-ms-win-crt-stdio-l1-1-0.dll",
+    "api-ms-win-crt-environment-l1-1-0.dll",
+    "api-ms-win-crt-locale-l1-1-0.dll",
+    "api-ms-win-crt-runtime-l1-1-0.dll",
+    "api-ms-win-crt-heap-l1-1-0.dll",
+    "api-ms-win-crt-private-l1-1-0.dll",
+    "api-ms-win-crt-string-l1-1-0.dll",
+    "api-ms-win-crt-convert-l1-1-0.dll",
+    "api-ms-win-crt-time-l1-1-0.dll",
+    "api-ms-win-crt-multibyte-l1-1-0.dll",
+    "api-ms-win-crt-math-l1-1-0.dll",
+    "api-ms-win-crt-filesystem-l1-1-0.dll",
+    "api-ms-win-crt-utility-l1-1-0.dll"
+  ],
+  "toolchainRelease": "llvm-mingw 20261104 UCRT",
+  "compiler": "Clang 23.1.5",
+  "target": "x86_64-w64-windows-gnu",
+  "toolchainArchiveSha256": "919380403de87dca3c581c2053230cd298af5e891286628ba0613b7fed370926",
+  "windowsExecutionTested": false
+}

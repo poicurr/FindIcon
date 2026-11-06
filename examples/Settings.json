@@ -1,0 +1,309 @@
+{
+  "candidates": [
+    {
+      "aliases": [],
+      "cell": {
+        "height": 201,
+        "width": 288,
+        "x": 20,
+        "y": 88
+      },
+      "clipped": false,
+      "codepoint": "U+EAF8",
+      "codepoint_decimal": 60152,
+      "family": "cod",
+      "id": "nf-cod-gear",
+      "index": 1,
+      "metrics": {
+        "advance": 17,
+        "bearing_x": -1,
+        "bearing_y": 15
+      },
+      "score": 400,
+      "supported": true,
+      "utf8": ""
+    },
+    {
+      "aliases": [],
+      "cell": {
+        "height": 201,
+        "width": 288,
+        "x": 320,
+        "y": 88
+      },
+      "clipped": false,
+      "codepoint": "U+EB52",
+      "codepoint_decimal": 60242,
+      "family": "cod",
+      "id": "nf-cod-settings",
+      "index": 2,
+      "metrics": {
+        "advance": 15,
+        "bearing_x": -1,
+        "bearing_y": 13
+      },
+      "score": 400,
+      "supported": true,
+      "utf8": ""
+    },
+    {
+      "aliases": [],
+      "cell": {
+        "height": 201,
+        "width": 288,
+        "x": 620,
+        "y": 88
+      },
+      "clipped": false,
+      "codepoint": "U+F0493",
+      "codepoint_decimal": 984211,
+      "family": "md",
+      "id": "nf-md-cog",
+      "index": 3,
+      "metrics": {
+        "advance": 16,
+        "bearing_x": 0,
+        "bearing_y": 15
+      },
+      "score": 400,
+      "supported": true,
+      "utf8": "󰒓"
+    },
+    {
+      "aliases": [],
+      "cell": {
+        "height": 201,
+        "width": 288,
+        "x": 920,
+        "y": 88
+      },
+      "clipped": false,
+      "codepoint": "U+F062E",
+      "codepoint_decimal": 984622,
+      "family": "md",
+      "id": "nf-md-tune",
+      "index": 4,
+      "metrics": {
+        "advance": 15,
+        "bearing_x": 0,
+        "bearing_y": 14
+      },
+      "score": 400,
+      "supported": true,
+      "utf8": "󰘮"
+    },
+    {
+      "aliases": [],
+      "cell": {
+        "height": 201,
+        "width": 288,
+        "x": 20,
+        "y": 301
+      },
+      "clipped": false,
+      "codepoint": "U+EB51",
+      "codepoint_decimal": 60241,
+      "family": "cod",
+      "id": "nf-cod-settings_gear",
+      "index": 5,
+      "metrics": {
+        "advance": 17,
+        "bearing_x": -1,
+        "bearing_y": 15
+      },
+      "score": 200,
+      "supported": true,
+      "utf8": ""
+    },
+    {
+      "aliases": [],
+      "cell": {
+        "height": 201,
+        "width": 288,
+        "x": 320,
+        "y": 301
+      },
+      "clipped": false,
+      "codepoint": "U+F1370",
+      "codepoint_decimal": 988016,
+      "family": "md",
+      "id": "nf-md-account_cog",
+      "index": 6,
+      "metrics": {
+        "advance": 17,
+        "bearing_x": 0,
+        "bearing_y": 14
+      },
+      "score": 200,
+      "supported": true,
+      "utf8": "󱍰"
+    },
+    {
+      "aliases": [],
+      "cell": {
+        "height": 201,
+        "width": 288,
+        "x": 620,
+        "y": 301
+      },
+      "clipped": false,
+      "codepoint": "U+F1371",
+      "codepoint_decimal": 988017,
+      "family": "md",
+      "id": "nf-md-account_cog_outline",
+      "index": 7,
+      "metrics": {
+        "advance": 17,
+        "bearing_x": 0,
+        "bearing_y": 14
+      },
+      "score": 200,
+      "supported": true,
+      "utf8": "󱍱"
+    },
+    {
+      "aliases": [],
+      "cell": {
+        "height": 201,
+        "width": 288,
+        "x": 920,
+        "y": 301
+      },
+      "clipped": false,
+      "codepoint": "U+F0630",
+      "codepoint_decimal": 984624,
+      "family": "md",
+      "id": "nf-md-account_settings",
+      "index": 8,
+      "metrics": {
+        "advance": 13,
+        "bearing_x": 0,
+        "bearing_y": 15
+      },
+      "score": 200,
+      "supported": true,
+      "utf8": "󰘰"
+    },
+    {
+      "aliases": [],
+      "cell": {
+        "height": 201,
+        "width": 288,
+        "x": 20,
+        "y": 514
+      },
+      "clipped": false,
+      "codepoint": "U+F10C9",
+      "codepoint_decimal": 987337,
+      "family": "md",
+      "id": "nf-md-account_settings_outline",
+      "index": 9,
+      "metrics": {
+        "advance": 13,
+        "bearing_x": 0,
+        "bearing_y": 15
+      },
+      "score": 200,
+      "supported": true,
+      "utf8": "󱃉"
+    },
+    {
+      "aliases": [],
+      "cell": {
+        "height": 201,
+        "width": 288,
+        "x": 320,
+        "y": 514
+      },
+      "clipped": false,
+      "codepoint": "U+F187D",
+      "codepoint_decimal": 989309,
+      "family": "md",
+      "id": "nf-md-airplane_cog",
+      "index": 10,
+      "metrics": {
+        "advance": 18,
+        "bearing_x": 0,
+        "bearing_y": 16
+      },
+      "score": 200,
+      "supported": true,
+      "utf8": "󱡽"
+    },
+    {
+      "aliases": [],
+      "cell": {
+        "height": 201,
+        "width": 288,
+        "x": 620,
+        "y": 514
+      },
+      "clipped": false,
+      "codepoint": "U+F1884",
+      "codepoint_decimal": 989316,
+      "family": "md",
+      "id": "nf-md-airplane_settings",
+      "index": 11,
+      "metrics": {
+        "advance": 14,
+        "bearing_x": -1,
+        "bearing_y": 16
+      },
+      "score": 200,
+      "supported": true,
+      "utf8": "󱢄"
+    },
+    {
+      "aliases": [],
+      "cell": {
+        "height": 201,
+        "width": 288,
+        "x": 920,
+        "y": 514
+      },
+      "clipped": false,
+      "codepoint": "U+F0675",
+      "codepoint_decimal": 984693,
+      "family": "md",
+      "id": "nf-md-application_cog",
+      "index": 12,
+      "metrics": {
+        "advance": 18,
+        "bearing_x": 0,
+        "bearing_y": 15
+      },
+      "score": 200,
+      "supported": true,
+      "utf8": "󰙵"
+    }
+  ],
+  "catalog_version": "3.5.1",
+  "count": 12,
+  "family_filter": [
+    "cod",
+    "md"
+  ],
+  "has_more": true,
+  "offset": 0,
+  "preview": {
+    "clipped_count": 0,
+    "font": "assets/SymbolsNerdFont-Regular.ttf",
+    "font_family": "Symbols Nerd Font",
+    "font_style": "Regular",
+    "font_version": "Version 001.000;Nerd Fonts 3.5.1",
+    "height": 735,
+    "image": "examples/Settings.png",
+    "label_font": "assets/LabelFont.ttf",
+    "large_pixel_size": 64,
+    "manifest": "examples/Settings.json",
+    "missing_count": 0,
+    "pixel_size": 20,
+    "theme": "dark",
+    "width": 1228
+  },
+  "query": [
+    "設定"
+  ],
+  "schema_version": 1,
+  "total": 137
+}

@@ -1,0 +1,9 @@
+/build/
+/build-*/
+/out/
+/dist/
+/test_outputs/
+/CMakeUserPresets.json
+/Candidates.png
+/Candidates.json
+*.user

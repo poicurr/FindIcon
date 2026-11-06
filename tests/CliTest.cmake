@@ -1,0 +1,105 @@
+if(NOT DEFINED FINDICON_EXE OR NOT DEFINED FINDICON_TEST_DIR)
+  message(FATAL_ERROR "FINDICON_EXE and FINDICON_TEST_DIR are required")
+endif()
+file(MAKE_DIRECTORY "${FINDICON_TEST_DIR}")
+
+function(run_cli expected)
+  execute_process(COMMAND "${FINDICON_EXE}" ${ARGN}
+    RESULT_VARIABLE result OUTPUT_VARIABLE output ERROR_VARIABLE error)
+  if(NOT "${result}" STREQUAL "${expected}")
+    message(FATAL_ERROR
+      "findicon ${ARGN}: expected exit ${expected}, got ${result}\n${output}\n${error}")
+  endif()
+  set(CLI_OUTPUT "${output}" PARENT_SCOPE)
+endfunction()
+
+run_cli(0 info nf-fa-cog nf-fa-gear)
+string(JSON count GET "${CLI_OUTPUT}" count)
+string(JSON codepoint GET "${CLI_OUTPUT}" candidates 0 codepoint)
+if(NOT count EQUAL 1 OR NOT codepoint STREQUAL "U+F013")
+  message(FATAL_ERROR "Exact alias lookup produced the wrong codepoint/count")
+endif()
+
+run_cli(0 search U+F0493)
+string(JSON id GET "${CLI_OUTPUT}" candidates 0 id)
+if(NOT id STREQUAL "nf-md-cog")
+  message(FATAL_ERROR "Supplementary codepoint search failed")
+endif()
+
+run_cli(0 search 設定 --family cod,md --limit 8)
+string(JSON count GET "${CLI_OUTPUT}" count)
+if(NOT count EQUAL 8)
+  message(FATAL_ERROR "Japanese keyword expansion failed")
+endif()
+
+run_cli(2 search)
+run_cli(2 search gear --family unknown_family)
+run_cli(2 search gear --limit -1)
+run_cli(2 preview --id nf-md-cog --family md)
+run_cli(2 info U+D800)
+run_cli(3 search no_such_icon_findicon_fixture)
+
+set(preview "${FINDICON_TEST_DIR}/日本語 Folder/Settings.png")
+run_cli(0 preview --id nf-cod-settings_gear --id U+F0493
+  --out "${preview}" --strict)
+string(JSON manifest GET "${CLI_OUTPUT}" preview manifest)
+if(NOT EXISTS "${preview}" OR NOT EXISTS "${manifest}")
+  message(FATAL_ERROR "Preview did not write its PNG/JSON pair")
+endif()
+file(READ "${manifest}" saved)
+string(JSON count GET "${saved}" count)
+string(JSON id0 GET "${saved}" candidates 0 id)
+string(JSON id1 GET "${saved}" candidates 1 id)
+string(JSON supported GET "${saved}" candidates 1 supported)
+if(NOT count EQUAL 2 OR NOT id0 STREQUAL "nf-cod-settings_gear" OR
+   NOT id1 STREQUAL "nf-md-cog" OR NOT supported)
+  message(FATAL_ERROR "Preview ID/number mapping does not match the selection")
+endif()
+file(READ "${preview}" signature LIMIT 8 HEX)
+if(NOT signature STREQUAL "89504e470d0a1a0a")
+  message(FATAL_ERROR "Preview output is not a PNG")
+endif()
+
+file(SHA256 "${preview}" beforePng)
+file(SHA256 "${manifest}" beforeJson)
+run_cli(3 preview no_such_icon_findicon_fixture --out "${preview}")
+file(SHA256 "${preview}" afterPng)
+file(SHA256 "${manifest}" afterJson)
+if(NOT beforePng STREQUAL afterPng OR NOT beforeJson STREQUAL afterJson)
+  message(FATAL_ERROR "Empty preview changed an existing output pair")
+endif()
+
+file(MAKE_DIRECTORY "${FINDICON_TEST_DIR}/ManifestDirectory")
+run_cli(2 preview gear --out "${preview}"
+  --manifest "${FINDICON_TEST_DIR}/ManifestDirectory")
+file(SHA256 "${preview}" afterPng)
+file(SHA256 "${manifest}" afterJson)
+if(NOT beforePng STREQUAL afterPng OR NOT beforeJson STREQUAL afterJson)
+  message(FATAL_ERROR "Invalid manifest destination changed an existing pair")
+endif()
+
+set(catalog "${FINDICON_TEST_DIR}/Protected.json")
+file(WRITE "${catalog}" [=[{"METADATA":{"version":"fixture"},"fa-cog":{"code":"f013","char":"\uf013"}}]=])
+file(SHA256 "${catalog}" beforeCatalog)
+run_cli(2 search cog --data "${catalog}" --out "${catalog}")
+file(SHA256 "${catalog}" afterCatalog)
+if(NOT beforeCatalog STREQUAL afterCatalog)
+  message(FATAL_ERROR "An input catalog was overwritten")
+endif()
+
+# Explicitly empty values must not turn into default output paths.
+execute_process(COMMAND "${FINDICON_EXE}" search gear --out ""
+  RESULT_VARIABLE emptyPathResult OUTPUT_QUIET ERROR_QUIET)
+if(NOT emptyPathResult EQUAL 2)
+  message(FATAL_ERROR "An explicitly empty path was not rejected")
+endif()
+
+if(UNIX AND EXISTS "/dev/full")
+  execute_process(COMMAND "${FINDICON_EXE}" search gear
+    RESULT_VARIABLE fullResult OUTPUT_FILE "/dev/full" ERROR_QUIET)
+  if(NOT fullResult EQUAL 2)
+    message(FATAL_ERROR "A failed stdout write did not report an I/O error")
+  endif()
+endif()
+
+message(STATUS "findicon CLI integration checks passed")
